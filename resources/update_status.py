@@ -18,14 +18,41 @@ class UpdateStatus(Resource):
         #create query string
         dt = datetime.now(pytz.timezone('Asia/Kolkata'))
         timestamp = dt.strftime('%Y-%m-%d %H:%M:%S')
-        print(timestamp)
+        #print(timestamp)
         qstr = f""" 
         update parking
         set available = "{ data['availability'] }", 
         last_updated = "{ timestamp }" 
         where park_id = "{ data['park_id'] }";
         """
-        print(qstr)
+        #print(qstr)
+        try:
+            query(qstr)
+            return {
+            "message" : "Succesfully updated."
+            }, 200
+        except Exception as e:
+            return {
+                "message" : "There was an error updating the database." + str(e)
+            }, 500
+
+    #@jwt_required    
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('park_id', type=int, required=True, help="park_id cannot be left blank!")
+        parser.add_argument('availability', type=str, required=True, help="availability cannot be left blank!")
+        data = parser.parse_args()
+        #create query string
+        dt = datetime.now(pytz.timezone('Asia/Kolkata'))
+        timestamp = dt.strftime('%Y-%m-%d %H:%M:%S')
+        #print(timestamp)
+        qstr = f""" 
+        update parking
+        set available = "{ data['availability'] }", 
+        last_updated = "{ timestamp }" 
+        where park_id = "{ data['park_id'] }";
+        """
+        #print(qstr)
         try:
             query(qstr)
             return {
