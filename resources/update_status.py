@@ -27,10 +27,10 @@ class UpdateStatus(Resource):
         """
         print(qstr)
         try:
-            return query(qstr)
-            """return {
+            query(qstr)
+            return {
             "message" : "Succesfully updated."
-            }, 200"""
+            }, 200
         except Exception as e:
             return {
                 "message" : "There was an error updating the database." + str(e)
