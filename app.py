@@ -4,6 +4,7 @@ from flask_jwt_extended import JWTManager
 
 #import resources
 from resources.update_status import UpdateStatus
+from resources.get_postal_zones import GetPostalZones
 
 # create flask app instance
 app = Flask(__name__)
@@ -17,7 +18,7 @@ app.config['JWT_SECRET_KEY'] = 'qp-cbit'
 #initialize api
 api = Api(app)
 api.add_resource(UpdateStatus, '/update-status') #for sensor to set status
-
+api.add_resource(GetPostalZones, '/get-postal') #for postal zones
 
 """
 jwt=JWTManager(app)
