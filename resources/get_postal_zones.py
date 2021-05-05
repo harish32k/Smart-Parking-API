@@ -7,7 +7,7 @@ from flask_jwt_extended import jwt_required
 class GetPostalZones(Resource):
 
     #@jwt_required    
-    def get(self):
+    def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('did', type=int, required=True, help="did cannot be left blank!")
         data = parser.parse_args()
