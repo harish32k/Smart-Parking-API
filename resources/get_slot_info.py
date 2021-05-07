@@ -18,7 +18,7 @@ class GetSlotInfo(Resource):
         LIMIT 1;
         """
         try:
-            return query(qstr)
+            return query(qstr, json_array=False)
         except Exception as e:
             return {
                 "message" : "There was an error accessing the database." + str(e)

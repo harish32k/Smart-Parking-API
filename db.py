@@ -15,7 +15,7 @@ default_password = 'password'
 default_db = 'smart'
 
 
-def query(querystr, args_tuple=None, return_json=True, connect_db=default_db):
+def query(querystr, args_tuple=None, return_json=True, connect_db=default_db, json_array=True):
 
     #create connection object
     connection = pymysql.connect(host=deafult_host,
@@ -38,6 +38,8 @@ def query(querystr, args_tuple=None, return_json=True, connect_db=default_db):
 
     #convert any decimal values to strings using encode function defined at the bottom
     result = encode(cursor.fetchall())
+    if(json_array == False):
+        result = result[0]
     connection.commit() #commit the changes made
     
     #close the cursor and connection
