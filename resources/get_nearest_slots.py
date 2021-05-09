@@ -28,6 +28,7 @@ class GetNearestSlots(Resource):
         ) AS distance
         FROM parking
         WHERE locality = '{ data["locality"] }' AND vehicle_type = '{ data["vehicle"] }'
+        AND available = 1
         ORDER BY distance;
         """
         try:
