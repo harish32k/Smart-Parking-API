@@ -45,6 +45,7 @@ class GetNearestSlots(Resource):
         parser.add_argument('longitude', type=float, required=True, help="longitude cannot be left blank!")
         parser.add_argument('vehicle', type=int, required=True, help="did cannot be left blank!")
         parser.add_argument('locality', type=int, required=True, help="did cannot be left blank!")
+        
         data = parser.parse_args()
         #create query string
         qstr = f""" 
@@ -60,6 +61,7 @@ class GetNearestSlots(Resource):
         ) AS distance
         FROM parking
         WHERE locality = '{ data["locality"] }' AND vehicle_type = '{ data["vehicle"] }'
+        AND available = 1
         ORDER BY distance;
         """
         try:
