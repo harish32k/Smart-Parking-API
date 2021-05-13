@@ -35,7 +35,7 @@ api.add_resource(UserSlotInfo, '/user-slot-info')
 api.add_resource(UserHistory, '/user-history')
 api.add_resource(UserBookmarks, '/user-bookmarks')
 api.add_resource(BookmarkSlot, '/bookmark-slot')
-api.add_resource(BookmarkSlot, '/remove-bookmark')
+api.add_resource(RemoveBookmark, '/remove-bookmark')
 
 """
 jwt=JWTManager(app)
