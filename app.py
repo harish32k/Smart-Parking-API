@@ -1,3 +1,4 @@
+from resources.user_bookmarks import UserBookmarks
 from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
@@ -8,6 +9,10 @@ from resources.get_postal_zones import GetPostalZones
 from resources.get_nearest_slots import GetNearestSlots
 from resources.get_slot_info import GetSlotInfo
 from resources.get_localities import GetLocalities
+from resources.user_slot_info import UserSlotInfo
+from resources.user_history import UserHistory
+from resources.user_bookmarks import UserBookmarks
+from resources.bookmark_slot import BookmarkSlot
 
 # create flask app instance
 app = Flask(__name__)
@@ -25,6 +30,10 @@ api.add_resource(GetPostalZones, '/get-postal') #for postal zones
 api.add_resource(GetNearestSlots, '/get-nearest-slots') #for nearest parking slots
 api.add_resource(GetSlotInfo, '/get-slot-info')
 api.add_resource(GetLocalities, '/get-localities')
+api.add_resource(UserSlotInfo, '/user-slot-info')
+api.add_resource(UserHistory, '/user-history')
+api.add_resource(UserBookmarks, '/user-bookmarks')
+api.add_resource(BookmarkSlot, '/bookmark-slot')
 
 """
 jwt=JWTManager(app)
