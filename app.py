@@ -13,6 +13,7 @@ from resources.user_slot_info import UserSlotInfo
 from resources.user_history import UserHistory
 from resources.user_bookmarks import UserBookmarks
 from resources.bookmark_slot import BookmarkSlot
+from resources.remove_bookmark import RemoveBookmark
 
 # create flask app instance
 app = Flask(__name__)
@@ -34,6 +35,7 @@ api.add_resource(UserSlotInfo, '/user-slot-info')
 api.add_resource(UserHistory, '/user-history')
 api.add_resource(UserBookmarks, '/user-bookmarks')
 api.add_resource(BookmarkSlot, '/bookmark-slot')
+api.add_resource(BookmarkSlot, '/remove-bookmark')
 
 """
 jwt=JWTManager(app)
