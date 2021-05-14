@@ -20,9 +20,9 @@ class RemoveBookmark(Resource):
 
         try:
             query(qstr)
-            return {
+            return jsonify({
                 "message" : "Success removing bookmark!"
-            }, 500
+            })
         except Exception as e:
             print(str(e))
             return {
