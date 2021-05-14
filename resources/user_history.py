@@ -14,6 +14,7 @@ class UserHistory(Resource):
         #create query string
         qstr = f""" 
         select history.park_id, vehicle_type, detail, accessed,
+        available,
         localities.locality, 
         postal_zones.pincode, zone, 
         dname 
