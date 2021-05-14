@@ -26,9 +26,9 @@ class BookmarkSlot(Resource):
 
         try:
             query(qstr)
-            return {
+            return jsonify( {
                 "message" : "Success bookmarking!"
-            }, 500
+            } )
         except Exception as e:
             print(str(e))
             return {
