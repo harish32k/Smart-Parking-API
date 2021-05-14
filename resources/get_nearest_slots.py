@@ -31,6 +31,9 @@ class GetNearestSlots(Resource):
         AND available = 1
         ORDER BY distance;
         """
+
+        print(qstr)
+        
         try:
             return query(qstr)
         except Exception as e:
