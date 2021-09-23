@@ -9,7 +9,7 @@ keyword argument 'args_tuple'. If args_tuple is not None, the query function is 
 the tuple of arguments to use in the query which is a format string.
 return_json is True by default , if set to false it returns a list of dictionaries for debugging"""
 
-deafult_host = 'iot-sp.cunlgid42qzy.ap-south-1.rds.amazonaws.com'
+deafult_host = 'new-restore.cunlgid42qzy.ap-south-1.rds.amazonaws.com'
 default_user = 'admin'
 default_password = 'password'
 default_db = 'smart'
